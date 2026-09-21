@@ -19,3 +19,7 @@ php artisan db:seed
 ```
 
 `SalonCrmSeeder` creates 3 pipeline stages, 10 salon leads, and 3 primary contacts. A subsequent increment will add reminder, email-template, and activity-log tables plus their seed data.
+
+## Implementation note
+
+I implemented the core lead pipeline, contacts, indexes, and sample salon data. The difficult part was recovering from an interrupted local Composer extraction; reminders, templates, and activity logs remain intentionally out of scope for this half-complete increment.
