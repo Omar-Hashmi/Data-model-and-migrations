@@ -27,7 +27,12 @@ Lookup indexes support pipeline filtering (`leads.pipeline_stage_id/status`, sou
 ```bash
 composer install
 php artisan migrate:fresh --seed
+php artisan db:seed
 php artisan test --compact
 ```
 
 `SalonCrmSeeder` creates 3 pipeline stages, 10 salon leads, 3 primary contacts, 5 email templates, 3 contact-linked follow-up reminders, and 3 contact-linked activity records.
+
+## Implementation note
+
+Implemented the complete relational CRM schema, models, indexes, sample salon data, and verification coverage. The main challenge was making bulk seed rows portable to SQLite, which requires every inserted row to supply the same columns; no required project-brief functionality was left out.
