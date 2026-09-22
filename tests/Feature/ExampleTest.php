@@ -2,18 +2,17 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
+    use LazilyRefreshDatabase;
+
+    public function test_dashboard_renders_an_empty_pipeline_state(): void
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertSee('No leads yet. Add your first salon enquiry to get started.');
     }
 }
